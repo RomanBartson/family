@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Article {{ article.getId() }} {{ article.getArticleTitle() }} ({{ article.getVisit() }})</div>
+            <div class="panel-body">
+                <p>{{ article.getArticle() }}</p>
+                <a href="/articles">back</a>
+                <a href="/articles/{{ article.getId() }}/edit">edit</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

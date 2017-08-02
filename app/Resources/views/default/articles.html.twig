@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Articles list</div>
+            <div class="panel-body">
+                <p>...</p>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>article title</th>
+                        <th>visits</th>
+                        <th>changed</th>
+                        <th>added</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.getArticleTitle() }}</td>
+                        <td>{{ article.getVisit() }}</td>
+                        <td>{{ article.getChanged() | date('Y-m-d') }}</td>
+                        <td>{{ article.getAdded() | date('Y-m-d') }}</td>
+                        <td>
+                            <a href="/articles/{{ article.getId() }}/edit">edit</a>
+                            <a href="/articles/{{ article.getId() }}">view</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
